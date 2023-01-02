@@ -1,0 +1,1 @@
+export const PLAYGROUND_PADDING = 20;
