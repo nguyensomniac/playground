@@ -1,4 +1,4 @@
-import { createCombinations } from "./createCombinations";
+import { Playground } from "./createCombinations";
 import { renderCombinationsToPage } from "./renderCombinationsToPage";
 import { renderStats } from './renderStats';
 
@@ -25,7 +25,8 @@ export const createPlayground = async (layerSet: SceneNode[]) => {
     }
   });
   const attributes = layerSet as ComponentSetNode[];
-  const combinations = createCombinations(attributes);
+  const playground = new Playground();
+  const combinations = playground.createCombinations(attributes);
   const stats = await renderStats(attributes);
   const page = renderCombinationsToPage(combinations);
   page.appendChild(stats);

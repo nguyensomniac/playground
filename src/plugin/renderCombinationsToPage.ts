@@ -1,4 +1,4 @@
-import {PLAYGROUND_PADDING} from '../util/constants'
+import {PLAYGROUND_PADDING, MAX_ITEMS_PER_PAGE} from '../util/constants'
 
 /**
  * Renders the given combination of attributes onto the Figma canvas as a Frame.
@@ -27,7 +27,7 @@ const renderCombination = (attributes: ComponentNode[]) => {
  */
 
 export const renderCombinationsToPage = (combinations: ComponentNode[][]) => {
-  const instances = [...combinations];
+  const instances = [...combinations.slice(0, MAX_ITEMS_PER_PAGE)];
   const newPage = figma.createPage();
   newPage.name = `Playground run at ${new Date().toString()}`;
   const numColumns = Math.floor(Math.pow(instances.length, 0.5));
