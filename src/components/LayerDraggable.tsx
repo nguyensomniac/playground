@@ -1,17 +1,22 @@
+import { styled } from "@stitches/react";
 import React from "react";
 
-export function LayerDraggable({ height, name }) {
+const Container = styled('div', {
+  backgroundColor: "#FFFFFF",
+  display: "flex",
+  alignItems: "center",
+  padding: '8px 16px',
+})
+
+export function LayerDraggable({ height, name, ...props }) {
   return (
-    <div
-      style={{
-        height: height,
-        backgroundColor: "#F6F6F6",
-        display: "flex",
-        alignItems: "center",
-        padding: '4px',
+    <Container
+      css={{
+        height: height
       }}
+      {...props}
     >
       {name}
-    </div>
+    </Container>
   );
 }
